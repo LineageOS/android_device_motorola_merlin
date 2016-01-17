@@ -1,0 +1,39 @@
+#
+# Copyright (C) 2015 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+include device/motorola/msm8916-common/BoardConfigCommon.mk
+
+-include vendor/motorola/merlin/BoardConfigVendor.mk
+
+DEVICE_PATH := device/motorola/merlin
+
+# Asserts
+TARGET_OTA_ASSERT_DEVICE := merlin,xt1556,xt1557
+
+# Init
+TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_merlin.cpp
+
+# Kernel
+TARGET_KERNEL_CONFIG := merlin_defconfig
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432	# 32768 * 1024 mmcblk0p31
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432	# 32768 * 1024 mmcblk0p32
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2852126720	# 2785280 * 1024 mmcblk0p41
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 8388608	# 8192 * 1024 mmcblk0p29
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 11815223296 # 11538304 * 1024 mmcblk0p42
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
