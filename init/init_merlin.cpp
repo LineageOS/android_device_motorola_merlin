@@ -64,17 +64,16 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_set("ro.product.model", sku);
 
-    if (ISMATCH(sku, "XT1556") || ISMATCH(radio, "0xTODO")) {
+    if (ISMATCH(sku, "XT1556") || ISMATCH(radio, "0x6")) {
         setMsim();
         property_set("ro.product.device", "merlin");
-        property_set("ro.build.description", "TODO");
-        property_set("ro.build.fingerprint", "TODO");
+        property_set("ro.build.description", "merlin_retail-user 5.1.1 LPD23.215 32 release-keys");
+        property_set("ro.build.fingerprint", "motorola/merlin_retail/merlin:5.1.1/LPD23.215/32:user/release-keys");
         property_set("ro.build.product", "merlin");
-        property_set("ro.gsm.data_retry_config", "TODO");
-        property_set("ro.mot.build.customerid", "TODO");
-        property_set("persist.radio.mot_ecc_custid", "TODO");
-        property_set("persist.radio.mot_ecc_enabled", "TODO");
-        property_set("persist.radio.process_sups_ind", "TODO");
+        property_set("ro.gsm.data_retry_config", "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000");
+        property_set("ro.mot.build.customerid", "retail");
+        property_set("persist.radio.mot_ecc_enabled", "1");
+        property_set("persist.radio.process_sups_ind", "1");
     }
     else if (ISMATCH(sku, "XT1557") || ISMATCH(radio, "0x9")) {
         setMsim();
