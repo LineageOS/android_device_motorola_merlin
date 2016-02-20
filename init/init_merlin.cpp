@@ -44,7 +44,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char platform[PROP_VALUE_MAX];
     char radio[PROP_VALUE_MAX];
     char sku[PROP_VALUE_MAX];
-    char carrier[PROP_VALUE_MAX];
     char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
     FILE *fp;
@@ -60,41 +59,23 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.boot.radio", radio);
     property_get("ro.boot.hardware.sku", sku);
-    property_get("ro.boot.carrier", carrier);
 
     property_set("ro.product.model", sku);
 
     if (ISMATCH(sku, "XT1556") || ISMATCH(radio, "0x6")) {
-        setMsim();
-        property_set("ro.product.device", "merlin");
-        property_set("ro.build.description", "merlin_retail-user 5.1.1 LPD23.215 32 release-keys");
-        property_set("ro.build.fingerprint", "motorola/merlin_retail/merlin:5.1.1/LPD23.215/32:user/release-keys");
-        property_set("ro.build.product", "merlin");
+        property_set("ro.build.description", "merlin_retail-user 6.0 MPD24.65-33 32 release-keys");
+        property_set("ro.build.fingerprint", "motorola/merlin_retail/merlin:6.0/MPD24.65-33/32:user/release-keys");
         property_set("ro.gsm.data_retry_config", "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000");
         property_set("ro.mot.build.customerid", "retail");
-        property_set("persist.radio.mot_ecc_enabled", "1");
         property_set("persist.radio.process_sups_ind", "1");
     }
     else if (ISMATCH(sku, "XT1557") || ISMATCH(radio, "0x9")) {
-        setMsim();
-        property_set("ro.product.device", "merlin");
         property_set("ro.build.description", "merlin_retasia-user 6.0 MPD24.65-22 23 release-keys");
         property_set("ro.build.fingerprint", "motorola/merlin_retasia/merlin:6.0/MPD24.65-22/23:user/release-keys");
-        property_set("ro.build.product", "merlin");
         property_set("ro.mot.build.customerid", "retasia");
-        property_set("persist.radio.mot_ecc_custid", "common");
-        property_set("persist.radio.mot_ecc_enabled", "1");
     }
 
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
     INFO("Found radio id: %s data %s setting build properties for %s device\n", radio, sku, devicename);
-}
-
-static void setMsim(void)
-{
-    property_set("persist.radio.force_get_pref", "1");
-    property_set("persist.radio.multisim.config", "dsds");
-    property_set("persist.radio.plmn_name_cmp", "1");
-    property_set("ro.telephony.ril.config", "simactivation");
 }

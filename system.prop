@@ -1,5 +1,8 @@
 # system.prop for merlin
 
+ro.build.product=merlin
+ro.product.device=merlin
+
 # Audio
 persist.audio.fluence.mode=endfire
 persist.audio.fluence.voicecall=true
@@ -7,3 +10,11 @@ ro.qc.sdk.audio.fluencetype=fluence
 
 # Display
 ro.sf.lcd_density=320
+
+# Radio
+persist.radio.force_get_pref=1
+persist.radio.mot_ecc_custid=common
+persist.radio.mot_ecc_enabled=1
+persist.radio.multisim.config=dsds
+persist.radio.plmn_name_cmp=1
+ro.telephony.ril.config=simactivation
