@@ -20,7 +20,7 @@ include device/motorola/msm8916-common/BoardConfigCommon.mk
 DEVICE_PATH := device/motorola/merlin
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := merlin,xt1556,xt1557
+TARGET_OTA_ASSERT_DEVICE := merlin
 
 # Init
 TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_merlin.cpp
