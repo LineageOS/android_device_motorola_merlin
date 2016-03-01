@@ -60,8 +60,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     property_get("ro.boot.radio", radio);
     property_get("ro.boot.hardware.sku", sku);
 
-    property_set("ro.product.model", sku);
-
     if (ISMATCH(sku, "XT1556") || ISMATCH(radio, "0x6")) {
         property_set("ro.build.description", "merlin_retail-user 6.0 MPD24.65-33 32 release-keys");
         property_set("ro.build.fingerprint", "motorola/merlin_retail/merlin:6.0/MPD24.65-33/32:user/release-keys");
