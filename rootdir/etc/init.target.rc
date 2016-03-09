@@ -31,21 +31,6 @@ on init
     export LD_SHIM_LIBS /system/lib/liblog.so|libshim_log.so
 
 on boot
-    # AK09912 driver parameter permissions
-    chown system compass /sys/class/compass/akm09912/accel
-    chmod 0660 /sys/class/compass/akm09912/accel
-    chown system compass /sys/class/compass/akm09912/delay_acc
-    chmod 0660 /sys/class/compass/akm09912/delay_acc
-    chown system compass /sys/class/compass/akm09912/enable_acc
-    chmod 0660 /sys/class/compass/akm09912/enable_acc
-    chown system compass /sys/class/compass/akm09912/delay_fusion
-    chmod 0660 /sys/class/compass/akm09912/delay_fusion
-    chown system compass /sys/class/compass/akm09912/enable_fusion
-    chmod 0660 /sys/class/compass/akm09912/enable_fusion
-    chown system compass /sys/class/compass/akm09912/delay_mag
-    chmod 0660 /sys/class/compass/akm09912/delay_mag
-    chown system compass /sys/class/compass/akm09912/enable_mag
-    chmod 0660 /sys/class/compass/akm09912/enable_mag
 
     # Switch to interactive and let PowerHAL configure it
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -73,16 +58,6 @@ on boot
     chmod 0644 /sys/devices/system/cpu/cpu6/online
     chown system system /sys/devices/system/cpu/cpu7/online
     chmod 0644 /sys/devices/system/cpu/cpu7/online
-
-on post-fs-data
-    # AK09912 calibration file directory
-    mkdir /data/misc/akmd 0770 system compass
-
-# Start AKM executable
-service akmd09912 /system/bin/akmd09912
-    class main
-    user compass
-    group compass misc input
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler fiops
