@@ -23,7 +23,8 @@ DEVICE_PATH := device/motorola/merlin
 TARGET_OTA_ASSERT_DEVICE := merlin
 
 # Init
-TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_merlin.cpp
+TARGET_INIT_VENDOR_LIB := libinit_merlin
+TARGET_RECOVERY_DEVICE_MODULES := libinit_merlin
 
 # Kernel
 TARGET_KERNEL_CONFIG := merlin_defconfig
