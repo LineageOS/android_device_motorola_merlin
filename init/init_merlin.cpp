@@ -37,16 +37,16 @@
 
 #define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
 
-static void setMsim(void);
-
 void vendor_load_properties()
 {
+    char customerid[PROP_VALUE_MAX];
+    char description[PROP_VALUE_MAX];
+    char device[PROP_VALUE_MAX];
+    char devicename[PROP_VALUE_MAX];
+    char fingerprint[PROP_VALUE_MAX];
     char platform[PROP_VALUE_MAX];
     char radio[PROP_VALUE_MAX];
     char sku[PROP_VALUE_MAX];
-    char device[PROP_VALUE_MAX];
-    char devicename[PROP_VALUE_MAX];
-    FILE *fp;
     int rc;
 
     rc = property_get("ro.board.platform", platform);
@@ -57,17 +57,20 @@ void vendor_load_properties()
     property_get("ro.boot.hardware.sku", sku);
 
     if (ISMATCH(sku, "XT1556") || ISMATCH(radio, "0x6")) {
-        property_set("ro.build.description", "merlin_retail-user 6.0 MPD24.65-33 32 release-keys");
-        property_set("ro.build.fingerprint", "motorola/merlin_retail/merlin:6.0/MPD24.65-33/32:user/release-keys");
+        sprintf(customerid, "retail");
         property_set("ro.gsm.data_retry_config", "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000");
-        property_set("ro.mot.build.customerid", "retail");
         property_set("persist.radio.process_sups_ind", "1");
     }
     else if (ISMATCH(sku, "XT1557") || ISMATCH(radio, "0x9")) {
-        property_set("ro.build.description", "merlin_retasia-user 6.0 MPD24.65-22 23 release-keys");
-        property_set("ro.build.fingerprint", "motorola/merlin_retasia/merlin:6.0/MPD24.65-22/23:user/release-keys");
-        property_set("ro.mot.build.customerid", "retasia");
+        sprintf(customerid, "retasia");
     }
+
+    sprintf(description, "merlin_%s-user 6.0.1 MPD24.107-56 30 release-keys", customerid);
+    sprintf(fingerprint, "motorola/merlin_%s/merlin:6.0.1/MPD24.107-56/30:user/release-keys", customerid);
+
+    property_set("ro.build.description", description);
+    property_set("ro.build.fingerprint", fingerprint);
+    property_set("ro.mot.build.customerid", customerid);
 
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
