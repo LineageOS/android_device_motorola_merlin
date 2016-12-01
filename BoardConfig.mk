@@ -21,7 +21,6 @@ DEVICE_PATH := device/motorola/merlin
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := merlin
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_merlin
