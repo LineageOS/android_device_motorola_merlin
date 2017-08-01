@@ -1,9 +1,5 @@
 # system.prop for merlin
 
-ro.build.product=merlin
-ro.product.device=merlin
-ro.product.model=MotoG3-TE
-
 # Audio
 persist.audio.fluence.mode=endfire
 persist.audio.fluence.voicecall=true
