@@ -26,6 +26,9 @@ TARGET_OTA_ASSERT_DEVICE := merlin
 TARGET_INIT_VENDOR_LIB := libinit_merlin
 TARGET_RECOVERY_DEVICE_MODULES := libinit_merlin
 
+# Camera
+BOARD_GLOBAL_CFLAGS += -DCONFIG_MSM_USES_M_STACK
+
 # Kernel
 TARGET_KERNEL_CONFIG := merlin_defconfig
 
