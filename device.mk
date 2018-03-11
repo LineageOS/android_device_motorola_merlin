@@ -45,6 +45,12 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     init.target.rc
 
+# Sensors
+PRODUCT_PACKAGES += \
+    stml0xx \
+    sensors.msm8916 \
+    sensorhub.msm8916
+
 # Thermal
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/thermal-engine-merlin.conf:system/etc/thermal-engine-merlin.conf
