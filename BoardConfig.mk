@@ -23,10 +23,6 @@ DEVICE_PATH := device/motorola/merlin
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := merlin
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_merlin
-TARGET_RECOVERY_DEVICE_MODULES := libinit_merlin
-
 # Camera
 BOARD_GLOBAL_CFLAGS += -DCONFIG_MSM_USES_M_STACK
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
