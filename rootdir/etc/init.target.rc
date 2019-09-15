@@ -38,10 +38,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
     chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
 
-    # little cluster will be hotplugged, but not governed by power HAL
-    chown system system /sys/module/cluster_plug/parameters/low_power_mode
-    chmod 0644 /sys/module/cluster_plug/parameters/low_power_mode
-
     chown system system /sys/module/cpu_boost/parameters/input_boost_freq
     chmod 0644 /sys/module/cpu_boost/parameters/input_boost_freq
 
@@ -80,7 +76,6 @@ on property:sys.boot_completed=1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
 
     write /sys/module/msm_thermal/core_control/enabled 0
-    write /sys/module/cluster_plug/parameters/active 0
 
     # enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1
@@ -103,15 +98,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 499200
 
-    # configure hotplug
-    write /sys/module/cluster_plug/parameters/load_threshold_down 40
-    write /sys/module/cluster_plug/parameters/load_threshold_up 80
-    write /sys/module/cluster_plug/parameters/vote_threshold_down 6
-    write /sys/module/cluster_plug/parameters/vote_threshold_up 2
-    write /sys/module/cluster_plug/parameters/sampling_time 80
-
     write /sys/module/msm_thermal/core_control/enabled 1
-    write /sys/module/cluster_plug/parameters/active 1
 
 on property:ro.boot.hardware.sku=XT1556
     setprop ro.gsm.data_retry_config "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000"
