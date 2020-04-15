@@ -45,6 +45,9 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     init.target.rc
 
+# System Properties
+$(call inherit-product, device/motorola/merlin/system_prop.mk)
+
 # Sensors
 PRODUCT_PACKAGES += \
     stml0xx \
