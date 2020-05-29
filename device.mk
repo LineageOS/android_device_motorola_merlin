@@ -57,4 +57,4 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/configs/thermal-engine-merlin.conf:system/etc/thermal-engine-merlin.conf
+     $(LOCAL_PATH)/configs/thermal-engine-merlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-merlin.conf
