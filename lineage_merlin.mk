@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/motorola/merlin/full_merlin.mk)
+$(call inherit-product, device/motorola/merlin/device.mk)
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
