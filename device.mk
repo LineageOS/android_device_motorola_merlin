@@ -59,3 +59,6 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/thermal-engine-merlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-merlin.conf
+
+# Get non-open-source specific aspects
+$(call inherit-product, vendor/motorola/merlin/merlin-vendor.mk)
