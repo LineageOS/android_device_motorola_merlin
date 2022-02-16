@@ -16,6 +16,24 @@
       "message": "wh.... why are you removing the dalvik tunings? These are set because the defaults are tiny. this will slow things down\n\nPlus nothing to do with this commit.\n\nPlus isn\u0027t this device close on space? The AAPT side will add like 30mb to system",
       "revId": "da1c76b0cf1d6ed00c4db112316eeed6a76905cc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d4686c_6d8cc251",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 22728
+      },
+      "writtenOn": "2022-02-16T23:56:50Z",
+      "side": 1,
+      "message": "Dalvik tunings are doing nothing on this device. But it can go into a separate change. \nAbout size, this device has no storage issues",
+      "parentUuid": "81244e7d_fff58cfa",
+      "revId": "da1c76b0cf1d6ed00c4db112316eeed6a76905cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
